@@ -11,7 +11,7 @@ const Login = () => {
     e.preventDefault();
     try {
       // Localhost ko baad mein Render ke URL se badalna hai
-      const res = await axios.post('https://chatwithkrishna.onrender.com', { email, password });
+      const res = await axios.post('https://chatwithkrishna.onrender.com/api/auth/login', { email, password });
       
       localStorage.setItem('token', res.data.token);
       localStorage.setItem('user', JSON.stringify(res.data.user));

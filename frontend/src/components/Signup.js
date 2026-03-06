@@ -23,7 +23,7 @@ const Signup = () => {
 
     try {
       // Backend registration endpoint
-      const res = await axios.post('http://localhost:5000/api/auth/register', formData);
+      const res = await axios.post('https://chatwithkrishna.onrender.com', formData);
       
       // Token aur User info local storage mein save karna
       localStorage.setItem('token', res.data.token);

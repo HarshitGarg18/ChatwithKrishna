@@ -3,7 +3,7 @@ import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
 import Typewriter from './components/Typewriter'; 
 
-const API_BASE = "http://localhost:5000/api/krishna";
+const API_BASE = "https://chatwithkrishna.onrender.com";
 
 function ChatComponent() {
   const [messages, setMessages] = useState([]);

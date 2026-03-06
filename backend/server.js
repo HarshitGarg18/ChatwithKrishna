@@ -15,7 +15,8 @@ const app = express();
 
 app.use(express.json());
 app.use(cors({
-    origin : 'https://chat-with-krishna-henna.vercel.app', 
+    origin : true ,
+    //  'https://chat-with-krishna-henna.vercel.app', 
     credentials : true
 }));
 

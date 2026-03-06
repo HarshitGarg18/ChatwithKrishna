@@ -14,7 +14,10 @@ const app = express();
 
 
 app.use(express.json());
-app.use(cors({origin : 'https://chat-with-krishna-yjtk4z7j6-harshit-gargs-projects-d354605e.vercel.app'}));
+app.use(cors({
+    origin : 'https://chat-with-krishna-yjtk4z7j6-harshit-gargs-projects-d354605e.vercel.app', 
+    credentials : true
+}));
 
 app.get('/', (req, res) => {
     res.send('Krishna AI Server is Running...');

@@ -27,6 +27,7 @@ const Signup = () => {
   const handleSubmit = async (e) => {
 
     e.preventDefault();
+
     setLoading(true);
     setError("");
 
@@ -40,13 +41,11 @@ const Signup = () => {
       localStorage.setItem("token", res.data.token);
       localStorage.setItem("user", JSON.stringify(res.data.user));
 
-      alert(`Swagat hai, ${res.data.user.name}!`);
-
       navigate("/chat");
 
     } catch (err) {
 
-      console.log(err);
+      console.error(err);
 
       setError(
         err.response?.data?.message ||
@@ -54,7 +53,9 @@ const Signup = () => {
       );
 
     } finally {
+
       setLoading(false);
+
     }
 
   };
@@ -82,7 +83,7 @@ const Signup = () => {
           <input
             type="text"
             name="name"
-            placeholder="Aapka Shubh Naam (e.g. Parth)"
+            placeholder="Aapka Shubh Naam"
             onChange={handleChange}
             required
           />
@@ -98,38 +99,23 @@ const Signup = () => {
           <input
             type="password"
             name="password"
-            placeholder="Ek Majboot Password"
+            placeholder="Password"
             onChange={handleChange}
             required
           />
 
-          <button type="submit" disabled={loading} style={{ marginTop: "10px" }}>
-            {loading ? "DATA BHEJ RAHE HAIN..." : "REGISTER KAREIN"}
+          <button type="submit" disabled={loading}>
+            {loading ? "Registering..." : "REGISTER"}
           </button>
 
         </form>
 
-        <div style={{ marginTop: "20px", textAlign: "center", fontSize: "14px" }}>
-          <span>Pehle se khata hai? </span>
-
-          <Link
-            to="/login"
-            style={{
-              color: "#2563eb",
-              fontWeight: "bold",
-              textDecoration: "none"
-            }}
-          >
-            Login Karein
-          </Link>
-
-        </div>
+        <p style={{ marginTop: "20px", textAlign: "center" }}>
+          Already have an account?{" "}
+          <Link to="/login">Login</Link>
+        </p>
 
       </div>
-
-      <p style={{ marginTop: "20px", fontSize: "12px", color: "#666" }}>
-        "Apne safar ki shuruat karein"
-      </p>
 
     </div>
   );

@@ -15,8 +15,8 @@ const app = express();
 
 app.use(express.json());
 app.use(cors({
-    origin: "https://chat-with-krishna-henna.vercel.app"
-  }))
+    origin: "*"
+  }));
 
 app.get('/', (req, res) => {
     res.send('Krishna AI Server is Running...');

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { useNavigate, Link } from 'react-router-dom';
-
+const API = process.env.REACT_APP_API_URL;
 const Login = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -11,7 +11,10 @@ const Login = () => {
     e.preventDefault();
     try {
       // Localhost ko baad mein Render ke URL se badalna hai
-      const res = await axios.post('https://chatwithkrishna.onrender.com/api/auth/login', { email, password });
+      const res = await axios.post(
+        `${API}/api/auth/login`,
+        { email, password }
+      );
       
       localStorage.setItem('token', res.data.token);
       localStorage.setItem('user', JSON.stringify(res.data.user));
